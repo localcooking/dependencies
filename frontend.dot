@@ -1,0 +1,19 @@
+digraph frontend {
+  "purescript-email-validate" -> "purescript-dictionary";
+  "purescript-material-ui" -> "purescript-material-ui-accessories";
+  "purescript-dictionary" -> "purescript-material-ui-accessories";
+  "purescript-google" -> "purescript-material-ui-form";
+  "purescript-material-ui-accessories" -> "purescript-material-ui-form";
+  "purescript-dom-extra" -> "purescript-material-ui-dialog";
+  "purescript-material-ui-form" -> "purescript-material-ui-dialog";
+  "purescript-haskell-iso" -> "purescript-localcooking-shared";
+  "purescript-uri-extra" -> "purescript-localcooking-shared";
+  "purescript-dom-extra" -> "purescript-localcooking-shared";
+  "purescript-facebook" -> "purescript-localcooking-shared";
+  "purescript-google" -> "purescript-localcooking-shared";
+  "purescript-dictionary" -> "purescript-localcooking-shared";
+  "purescript-localcooking-shared" -> "purescript-localcooking-dependencies";
+  "purescript-sparrow-queue" -> "purescript-localcooking-dependencies";
+  "purescript-material-ui-dialog" -> "purescript-localcooking-spec";
+  "purescript-localcooking-dependencies" -> "purescript-localcooking-spec";
+}
