@@ -12,6 +12,13 @@ digraph frontend {
   "purescript-material-ui-accessories" [fillcolor = khaki, style = filled];
   "purescript-material-ui-form" [fillcolor = khaki, style = filled];
   "purescript-material-ui-dialog" [fillcolor = khaki, style = filled];
+  "localcooking-blog/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-admin/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-content/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-mitch/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-chef/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-farm/frontend" [fillcolor = orchid, style = filled];
+  "localcooking-restaurant/frontend" [fillcolor = orchid, style = filled];
 
   "purescript-email-validate" -> "purescript-dictionary";
   "purescript-uri-extra" -> "purescript-facebook";
@@ -32,4 +39,16 @@ digraph frontend {
   "purescript-material-ui-dialog" -> "purescript-localcooking-spec";
   "purescript-localcooking-dependencies" -> "purescript-localcooking-spec";
   "purescript-localcooking-spec" -> "purescript-localcooking-template";
+  "purescript-localcooking-template" -> "localcooking-admin/frontend";
+  "purescript-localcooking-template" -> "localcooking-blog/frontend";
+  "purescript-localcooking-template" -> "localcooking-content/frontend";
+  "purescript-localcooking-template" -> "localcooking-mitch/frontend";
+  "purescript-localcooking-template" -> "localcooking-farm/frontend";
+  "purescript-localcooking-template" -> "localcooking-chef/frontend";
+  "purescript-localcooking-template" -> "localcooking-restaurant/frontend";
+  "localcooking-admin/frontend" -> "localcooking-farm/frontend" [ style = invis ];
+  "localcooking-content/frontend" -> "localcooking-chef/frontend" [ style = invis ];
+  "localcooking-mitch/frontend" -> "localcooking-restaurant/frontend" [ style = invis ];
+  { rank = same; "localcooking-admin/frontend"; "localcooking-blog/frontend"; "localcooking-content/frontend"; "localcooking-mitch/frontend" }
+  { rank = same; "localcooking-farm/frontend"; "localcooking-chef/frontend"; "localcooking-restaurant/frontend" }
 }

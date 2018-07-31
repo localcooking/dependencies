@@ -13,3 +13,4 @@
 | green      | independent |
 | yellow     | generic |
 | white      | primary |
+| purple     | site |
