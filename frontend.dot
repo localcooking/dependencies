@@ -1,5 +1,21 @@
 digraph frontend {
+  "purescript-email-validate" [fillcolor = lightcyan, style = filled];
+  "purescript-thermite" [fillcolor = lightcyan, style = filled];
+  "purescript-material-ui" [fillcolor = coral, style = filled];
+  "purescript-uri-extra" [fillcolor = lightblue, style = filled];
+  "purescript-dom-extra" [fillcolor = lightblue, style = filled];
+  "purescript-haskell-iso" [fillcolor = lightblue, style = filled];
+  "purescript-facebook" [fillcolor = salmon, style = filled];
+  "purescript-google" [fillcolor = salmon, style = filled];
+  "purescript-sparrow-queue" [fillcolor = springgreen, style = filled];
+  "purescript-dictionary" [fillcolor = khaki, style = filled];
+  "purescript-material-ui-accessories" [fillcolor = khaki, style = filled];
+  "purescript-material-ui-form" [fillcolor = khaki, style = filled];
+  "purescript-material-ui-dialog" [fillcolor = khaki, style = filled];
+
   "purescript-email-validate" -> "purescript-dictionary";
+  "purescript-uri-extra" -> "purescript-facebook";
+  "purescript-thermite" -> "purescript-material-ui-accessories";
   "purescript-material-ui" -> "purescript-material-ui-accessories";
   "purescript-dictionary" -> "purescript-material-ui-accessories";
   "purescript-google" -> "purescript-material-ui-form";
@@ -7,7 +23,6 @@ digraph frontend {
   "purescript-dom-extra" -> "purescript-material-ui-dialog";
   "purescript-material-ui-form" -> "purescript-material-ui-dialog";
   "purescript-haskell-iso" -> "purescript-localcooking-shared";
-  "purescript-uri-extra" -> "purescript-localcooking-shared";
   "purescript-dom-extra" -> "purescript-localcooking-shared";
   "purescript-facebook" -> "purescript-localcooking-shared";
   "purescript-google" -> "purescript-localcooking-shared";
@@ -16,4 +31,5 @@ digraph frontend {
   "purescript-sparrow-queue" -> "purescript-localcooking-dependencies";
   "purescript-material-ui-dialog" -> "purescript-localcooking-spec";
   "purescript-localcooking-dependencies" -> "purescript-localcooking-spec";
+  "purescript-localcooking-spec" -> "purescript-localcooking-template";
 }
