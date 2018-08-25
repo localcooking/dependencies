@@ -1,6 +1,17 @@
 # Frontend
 
+> Transitive Dependencies
+
 ![frontend](https://git.localcooking.com/localcooking/dependencies/raw/master/frontend.png)
+
+
+# Backend
+
+> Non-Transitive Dependencies
+
+
+![backend](https://git.localcooking.com/localcooking/dependencies/raw/master/backend.png)
+
 
 # Key
 

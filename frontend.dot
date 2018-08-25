@@ -1,17 +1,59 @@
+/* Key:
+light blue: forked
+blue:       extended
+orange:     foreign bindings
+red:        semantic bindings
+green:      independent
+yellow:     generic
+white:      primary
+purple:     site
+*/
+
 digraph frontend {
+  // Forked
   "purescript-email-validate" [fillcolor = lightcyan, style = filled];
   "purescript-thermite" [fillcolor = lightcyan, style = filled];
+  "purescript-argonaut" [fillcolor = lightcyan, style = filled];
+  "purescript-argonaut-core" [fillcolor = lightcyan, style = filled];
+  "purescript-affjax" [fillcolor = lightcyan, style = filled];
+  "purescript-uuid" [fillcolor = lightcyan, style = filled];
+  "purescript-records" [fillcolor = lightcyan, style = filled];
+  "purescript-uri" [fillcolor = lightcyan, style = filled];
+  "purescript-pathy" [fillcolor = lightcyan, style = filled];
+  "purescript-sets" [fillcolor = lightcyan, style = filled];
+  "purescript-maps" [fillcolor = lightcyan, style = filled];
+  "purescript-crypt-nacl" [fillcolor = lightcyan, style = filled];
+
+  // Foreign Bindings
   "purescript-material-ui" [fillcolor = coral, style = filled];
+
+  // Extended
   "purescript-uri-extra" [fillcolor = lightblue, style = filled];
   "purescript-dom-extra" [fillcolor = lightblue, style = filled];
-  "purescript-haskell-iso" [fillcolor = lightblue, style = filled];
+
+  // Independent
+  "purescript-haskell-iso" [fillcolor = springgreen, style = filled];
+  "purescript-sparrow" [fillcolor = springgreen, style = filled];
+  "purescript-sparrow-queue" [fillcolor = springgreen, style = filled];
+
+  // Semantic Bindings
   "purescript-facebook" [fillcolor = salmon, style = filled];
   "purescript-google" [fillcolor = salmon, style = filled];
-  "purescript-sparrow-queue" [fillcolor = springgreen, style = filled];
+
+  // Generic
   "purescript-dictionary" [fillcolor = khaki, style = filled];
+  "purescript-auth" [fillcolor = khaki, style = filled];
   "purescript-material-ui-accessories" [fillcolor = khaki, style = filled];
   "purescript-material-ui-form" [fillcolor = khaki, style = filled];
   "purescript-material-ui-dialog" [fillcolor = khaki, style = filled];
+
+  // Primary
+  "purescript-localcooking-shared" [fillcolor = white, style = filled];
+  "purescript-localcooking-dependencies" [fillcolor = white, style = filled];
+  "purescript-localcooking-spec" [fillcolor = white, style = filled];
+  "purescript-localcooking-template" [fillcolor = white, style = filled];
+
+  // Site
   "localcooking-blog/frontend" [fillcolor = orchid, style = filled];
   "localcooking-admin/frontend" [fillcolor = orchid, style = filled];
   "localcooking-content/frontend" [fillcolor = orchid, style = filled];
@@ -20,25 +62,65 @@ digraph frontend {
   "localcooking-farm/frontend" [fillcolor = orchid, style = filled];
   "localcooking-restaurant/frontend" [fillcolor = orchid, style = filled];
 
-  "purescript-email-validate" -> "purescript-dictionary";
-  "purescript-uri-extra" -> "purescript-facebook";
+
+
+  // * Arrows
+
+  // Forked
+  "purescript-argonaut-core" -> "purescript-argonaut";
+  "purescript-argonaut-core" -> "purescript-affjax";
+  "purescript-argonaut" -> "purescript-haskell-iso";
+  "purescript-argonaut" -> "purescript-sparrow";
+  "purescript-pathy" -> "purescript-uri";
+  "purescript-maps" -> "purescript-sets";
+  "purescript-sets" -> "purescript-haskell-iso";
+  "purescript-records" -> "purescript-material-ui";
+  "purescript-uri" -> "purescript-uri-extra";
+  "purescript-uri" -> "purescript-haskell-iso";
   "purescript-thermite" -> "purescript-material-ui-accessories";
+  "purescript-uuid" -> "purescript-sparrow";
+  "purescript-affjax" -> "purescript-sparrow";
+  "purescript-email-validate" -> "purescript-dictionary";
+  "purescript-crypt-nacl" -> "purescript-auth";
+  
+  // Foreign Bindings
   "purescript-material-ui" -> "purescript-material-ui-accessories";
+
+  // Extended
+  "purescript-uri-extra" -> "purescript-facebook";
+  "purescript-dom-extra" -> "purescript-material-ui-dialog";
+  "purescript-dom-extra" -> "purescript-localcooking-shared";
+
+  // Generic
   "purescript-dictionary" -> "purescript-material-ui-accessories";
   "purescript-google" -> "purescript-material-ui-form";
   "purescript-material-ui-accessories" -> "purescript-material-ui-form";
-  "purescript-dom-extra" -> "purescript-material-ui-dialog";
   "purescript-material-ui-form" -> "purescript-material-ui-dialog";
-  "purescript-haskell-iso" -> "purescript-localcooking-shared";
-  "purescript-dom-extra" -> "purescript-localcooking-shared";
+
+  // Independent
+  "purescript-haskell-iso" -> "purescript-facebook";
+  "purescript-haskell-iso" -> "purescript-google";
+  "purescript-haskell-iso" -> "purescript-dictionary";
+  "purescript-haskell-iso" -> "purescript-auth";
+  "purescript-sparrow" -> "purescript-sparrow-queue";
+  "purescript-sparrow-queue" -> "purescript-auth";
+
+  // Semantic Bindings
   "purescript-facebook" -> "purescript-localcooking-shared";
   "purescript-google" -> "purescript-localcooking-shared";
+  
+  // Primary
+  "purescript-auth" -> "purescript-localcooking-shared";
   "purescript-dictionary" -> "purescript-localcooking-shared";
+
   "purescript-localcooking-shared" -> "purescript-localcooking-dependencies";
-  "purescript-sparrow-queue" -> "purescript-localcooking-dependencies";
+
   "purescript-material-ui-dialog" -> "purescript-localcooking-spec";
   "purescript-localcooking-dependencies" -> "purescript-localcooking-spec";
+
   "purescript-localcooking-spec" -> "purescript-localcooking-template";
+
+  // Site
   "purescript-localcooking-template" -> "localcooking-admin/frontend";
   "purescript-localcooking-template" -> "localcooking-blog/frontend";
   "purescript-localcooking-template" -> "localcooking-content/frontend";
@@ -46,6 +128,7 @@ digraph frontend {
   "purescript-localcooking-template" -> "localcooking-farm/frontend";
   "purescript-localcooking-template" -> "localcooking-chef/frontend";
   "purescript-localcooking-template" -> "localcooking-restaurant/frontend";
+
   "localcooking-admin/frontend" -> "localcooking-farm/frontend" [ style = invis ];
   "localcooking-content/frontend" -> "localcooking-chef/frontend" [ style = invis ];
   "localcooking-mitch/frontend" -> "localcooking-restaurant/frontend" [ style = invis ];
