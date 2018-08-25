@@ -1,3 +1,14 @@
+/* Key:
+light blue: forked
+blue:       extended
+orange:     foreign bindings
+red:        semantic bindings
+green:      independent
+yellow:     generic
+white:      primary
+purple:     site
+*/
+
 digraph backend {
   // "purescript-email-validate" [fillcolor = lightcyan, style = filled];
   // "purescript-thermite" [fillcolor = lightcyan, style = filled];
@@ -16,17 +27,56 @@ digraph backend {
   // "localcooking-chef/frontend" [fillcolor = orchid, style = filled];
   // "localcooking-farm/frontend" [fillcolor = orchid, style = filled];
   // "localcooking-restaurant/frontend" [fillcolor = orchid, style = filled];
-  "template-dictionary" [fillcolor = khaki, style = filled];
-  "template-auth" [fillcolor = khaki, style = filled];
+  // Forked
+  "saltine" [fillcolor = lightcyan, style = filled];
+
+  // Extended
+  "zeromq4-simple" [fillcolor = lightblue, style = filled];
+  
+  // Independent
+  "purescript-iso" [fillcolor = springgreen, style = filled];
+  "nested-routes" [fillcolor = springgreen, style = filled];
+  "sparrow" [fillcolor = springgreen, style = filled];
+
+  // Semantic Bindings
   "template-facebook" [fillcolor = salmon, style = filled];
   "template-google" [fillcolor = salmon, style = filled];
   "template-sparkpost" [fillcolor = salmon, style = filled];
+  
+  // Generic
+  "template-dictionary" [fillcolor = khaki, style = filled];
+  "template-auth" [fillcolor = khaki, style = filled];
   "template-user" [fillcolor = khaki, style = filled];
 
-  "template-auth" -> "template-sparkpost";
-  "template-dictionary" -> "template-user";
+
+  // * Arrows
+
+  // Forked
+  "saltine" -> "template-auth";
+
+  // Extended
+  "zeromq4-simple" -> "template-dictionary";
+  "zeromq4-simple" -> "template-facebook";
+  "zeromq4-simple" -> "template-google";
+  "zeromq4-simple" -> "template-auth";
+  "zeromq4-simple" -> "purescript-iso";
+
+  // Independent
+  "purescript-iso" -> "template-dictionary";
+  "purescript-iso" -> "template-facebook";
+  "purescript-iso" -> "template-google";
+  "purescript-iso" -> "template-auth";
+  "nested-routes" -> "sparrow";
+  "nested-routes" -> "template-auth";
+  "sparrow" -> "template-auth";
+
+  // Semantic Bindings
   "template-facebook" -> "template-user";
   "template-google" -> "template-user";
   "template-sparkpost" -> "template-user";
+
+  // Generic
+  "template-dictionary" -> "template-user";
+  "template-auth" -> "template-sparkpost";
   "template-auth" -> "template-user";
 }
